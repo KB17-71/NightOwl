@@ -1,0 +1,80 @@
+:root {
+  --navy: #08204b;
+  --navy2: #102d61;
+  --purple: #0039a6;
+  --ink: #172033;
+  --muted: #64748b;
+  --line: #dfe7f1;
+  --bg: #f5f8fc;
+}
+
+/* Georgia State blue and white carry the interface; red stays a small accent. */
+.brand-mark {
+  position: relative;
+  background: linear-gradient(145deg, #0071ce, #0039a6);
+  box-shadow: 0 8px 20px #0039a633;
+}
+.brand-mark::after {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #cc0000;
+  content: "";
+}
+.sidebar { background: #08204b; }
+.nav-link.nav-active {
+  color: #fff;
+  background: linear-gradient(100deg, #17458a, #12356c);
+  box-shadow: inset 2px 0 #97caeb;
+}
+.nav-link.nav-active svg,
+.privacy-mini svg { color: #97caeb; }
+.demo-pill { color: #0039a6; background: #eaf2fc; }
+.demo-pill i { background: #0071ce; }
+.eyebrow { color: #0071ce; }
+.welcome-row .eyebrow,
+.welcome-row h1 span { color: #97caeb; }
+.button-primary {
+  background: linear-gradient(105deg, #0071ce, #0039a6);
+  box-shadow: 0 7px 18px #0039a633;
+}
+.welcome-row .button-primary { background: #0071ce; }
+.welcome-row {
+  background: linear-gradient(110deg, #081a3d 2%, #0c2d62 64%, #0039a6 100%);
+}
+.welcome-row::after {
+  background: radial-gradient(circle, #0071ce44 0%, transparent 68%);
+}
+.welcome-row .art-star.star-a { color: #cc0000; }
+.owl-glow { background: linear-gradient(145deg, #0071ce, #0039a6); box-shadow: 0 18px 48px #0039a655; }
+.orbit, .orbit-two { border-color: #97caeb66; }
+.star-b { color: #97caeb; }
+.text-link, .all-reports, .report-actions button, .status-text { color: #0039a6; }
+.sample-label, .sample-contact-tag { color: #0039a6; background: #edf4fc; border-color: #dbe7f5; }
+.stat-icon.purple,
+.impact-icon.purple,
+.share-icon,
+.count-icon,
+.empty-icon,
+.count-circle,
+.view-toggle button.toggle-active,
+.toggle-active {
+  color: #0039a6;
+  background: #eaf2fc;
+}
+.contact-preview { background: #f4f8ff; border-color: #dce8f7; }
+.report-privacy { color: #0039a6; background: #edf4fc; border-color: #dbe7f5; }
+.trust-strip { color: #0039a6; background: #edf4fc; border-color: #d7e5f5; }
+.trust-lock { color: #0039a6; }
+.input-icon, input:focus, select:focus, textarea:focus { color: #0039a6; }
+.input-icon:focus-within, input:focus, select:focus, textarea:focus { border-color: #0071ce; box-shadow: 0 0 0 3px #0071ce1a; }
+.map-filters > svg { color: #0039a6; }
+.map-toolbar .toggle-active { color: #0039a6; background: #eaf2fc; }
+.timeline-dot { background: #0071ce; box-shadow: 0 0 0 3px #0071ce22; }
+
+@media (max-width: 760px) {
+  .welcome-row { background: linear-gradient(145deg, #081a3d, #0039a6); }
+}
