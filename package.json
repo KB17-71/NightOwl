@@ -2,8 +2,18 @@
   "name": "nightowl-campus-safety",
   "version": "1.0.0",
   "private": true,
-  "scripts": { "dev": "next dev", "build": "next build", "start": "next start", "lint": "eslint app components lib types.ts", "typecheck": "tsc --noEmit" },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "build:mobile": "node scripts/build-mobile.mjs",
+    "lint": "eslint app components lib types.ts next.config.ts playwright.config.ts capacitor.config.ts tests/e2e scripts/build-mobile.mjs",
+    "typecheck": "tsc --noEmit",
+    "test:e2e": "playwright test"
+  },
   "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/core": "^8.5.3",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.468.0",
     "next": "^15.2.4",
@@ -12,6 +22,8 @@
     "react-leaflet": "^5.0.0"
   },
   "devDependencies": {
+    "@capacitor/cli": "^8.5.3",
+    "@playwright/test": "^1.64.0",
     "@types/leaflet": "^1.9.16",
     "@types/node": "^22.13.10",
     "@types/react": "^19.0.10",
@@ -19,6 +31,8 @@
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.1",
     "eslint-config-next": "^15.5.27",
+    "playwright": "1.64.0",
+    "playwright-core": "1.64.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.2"

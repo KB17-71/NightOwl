@@ -1,0 +1,15 @@
+.app-frame {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.topbar {
+  top: env(safe-area-inset-top, 0px);
+}
+
+.sidebar {
+  padding-top: calc(27px + env(safe-area-inset-top, 0px));
+  padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+}

@@ -18,14 +18,60 @@ Next.js App Router, React, TypeScript, Tailwind CSS, Lucide icons, Leaflet, Reac
 
 ## Install and run
 
-Requires Node.js 20 or newer and npm.
+Requires Node.js 20 or newer and pnpm.
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). For a production build, run `npm run build` and then `npm start`.
+Open [http://localhost:3000](http://localhost:3000). For a production build, run `pnpm build` and then `pnpm start`.
+
+## End-to-end browser tests
+
+The Playwright suite uses a dedicated Next.js development server on `http://127.0.0.1:4179`, a separate `.next-e2e` build directory, and a fresh browser context for every test. It does not reuse the normal demo at port 3000 or its browser storage.
+
+Install the Chromium browser once, then run the suite:
+
+```bash
+pnpm exec playwright install chromium
+pnpm test:e2e
+```
+
+Playwright starts and stops the test server automatically. Test results and the optional HTML report are written to ignored folders.
+
+## Capacitor Android app
+
+The Android app bundles the static export in `.next-mobile/`; Capacitor does not load the deployed website URL. The website's normal `pnpm build` still uses Next.js `.next` output. The Playwright server continues to use `.next-e2e`.
+
+Requires Node.js 22 or newer, Android Studio 2025.2.1 or newer, and an Android SDK with Android SDK Platform API 24 or newer. Android Studio includes the JDK needed by Gradle; install the SDK platform and Android SDK Build Tools from **Tools → SDK Manager**. Installing Capacitor 8 does not add GPS, background monitoring, or real contact notifications. The map needs an internet connection to load OpenStreetMap tiles.
+
+Create the Android project once:
+
+```bash
+pnpm build:mobile
+pnpm exec cap add android
+```
+
+For each later web-code change, rebuild and sync the bundled app, then open Android Studio:
+
+```bash
+pnpm build:mobile
+pnpm exec cap sync android
+pnpm exec cap open android
+```
+
+## Install on iPhone (PWA)
+
+NightOwl includes a web app manifest, app icons, and iOS Home Screen metadata. To install the deployed site, open its HTTPS URL in **Safari** on iPhone, tap **Share**, choose **Add to Home Screen**, review the NightOwl name, then tap **Add**. Open NightOwl from its Home Screen icon to use standalone display mode. If **Add to Home Screen** is not visible, scroll the Share sheet or check its edit actions. Installing the PWA does not add offline support, push notifications, GPS tracking, or background monitoring.
+
+To launch on an attached device or running emulator from the command line, enable Android USB debugging (for a physical device), then run:
+
+```bash
+pnpm exec cap run android
+```
+
+Alternatively, open the `android/` project in Android Studio, select a device or emulator, and press **Run**. Install Android Studio and the SDK before building or launching the native app; the static web export itself does not require them.
 
 ## Demo walkthrough
 
